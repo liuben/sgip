@@ -107,7 +107,7 @@ Thess fields use number in hex string format, 0F means 15, they should be as lon
 * reserve
 
 The response of this HTTP request is in JSON format as
-```
+```json
 {"result":0,"sequence":"0102030405060708090A0B0C"}
 ```
 
