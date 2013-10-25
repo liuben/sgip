@@ -80,7 +80,7 @@ When you start the sgip server, it will wait for the SGP connection and business
 
 Business logic can request the url as follow to submit a SMS:
 ```
-http://127.0.0.1:8801/submit?spNumber=12345&chargeNumber=&userNumber=861381123457&corpId=666666&serviceType=%00&feeType=00&feeValue=0&givenValue=%00&agentFlag=00&mtFlag=09&priority=00&expireTime=130929130102032+&scheduleTime=%00&reportFlag=00&tppid=00&tpudhi=00&msgCoding=00&&msgContent=010203040506070809&reserve=0000000000000000")
+http://127.0.0.1:8801/submit?spNumber=123456789&chargeNumber=&userNumber=861381123457&corpId=666666&serviceType=01020304&feeType=00&feeValue=0&givenValue=%00&agentFlag=00&mtFlag=02&priority=00&expireTime=%00&scheduleTime=%00&reportFlag=00&tppid=08&tpudhi=00&msgCoding=00&&msgContent=616263&reserve=0000000000000000
 ```
 
 These fields use ascii, they could be shorter than SGIP protocol requirement:
@@ -117,7 +117,7 @@ Sequence is the submit's sequence number, which has 12 bytes. If failed, the res
 
 When sgip server receives a deliver, it will callback the business logic's web service.
 ```
-
+http://127.0.0.1/deliver?msgCoding=00&msgContent=616263&spNumber=123456789&tppid=00&tpudhi=00&userNumber=8613811234567&reserve=0000000000000000
 ```
 
 So business logic should implements the callback web service, and initilize it to DeliverCallbackUrl.
@@ -126,7 +126,7 @@ So business logic should implements the callback web service, and initilize it t
 
 When sgip server receives a report, it will callback the business logic's web service.
 ```
-
+http://127.0.0.1/report?errorCode=67&reportType=00&state=02&submitSeq=B44EC4FD3D1AEE6600000001&userNumber=8613811234567
 ```
 
 So business logic should implements the callback web service, and initilize it to ReportCallbackUrl.
